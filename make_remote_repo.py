@@ -1,25 +1,12 @@
-import platform
-import re
+from github import Github
 import sys
-import os
-import time
-
-
-from selenium import webdriver
 
 
 def make():
-    path = os.getcwd() + '/chromedriver'
-
-    driver = webdriver.Chrome(path)
-    url = 'https://www.google.com'
-    driver.get(url)
-    time.sleep(5)
-
-
-def test():
-    os.system("export PATH={}:$PATH && echo $PATH".format(os.getcwd()))
-
+    user = Github("YOUR_USERNAME", "YOUR_PASSWORD").get_user()
+    repo = user.create_repo(name=sys.argv[1])
+    print("Successfully created repo {}".format(sys.argv[1]))
+    print(sys.argv[1])
 
 
 if __name__ == '__main__':
