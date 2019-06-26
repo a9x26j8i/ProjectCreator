@@ -21,6 +21,7 @@ create(){
     make_remote_repo() {
         python3 ${CURRENT_DIR}/make_remote_repo.py ${PROJECT_NAME}
     }
+
     git_init_create_add() {
         git init
         echo "#README" > README.md
@@ -30,6 +31,7 @@ create(){
         git commit -m "Initial Commit"
         git push -u origin master
     }
+
     create_project_dir_and_move() {
         if [[ -d ${TARGET_DIR} ]]
         then
@@ -43,6 +45,7 @@ create(){
 
         cd ${TARGET_DIR}
     }
+
     check_args() {
         if [[ $# -eq 0 ]]
         then
@@ -53,6 +56,7 @@ create(){
             return 0
         fi
     }
+
 }
 
 
